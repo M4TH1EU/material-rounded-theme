@@ -86,7 +86,7 @@ def main():
 					# Save template to buffer and then read to get yaml as string
 					buffer = StringIO()
 					yaml.dump(element_yaml, buffer)
-					output['Material Rounded'][f'card-mod-{element.replace('_', '-')}-yaml'] = buffer.getvalue().strip()
+					output['Material Rounded'][f"card-mod-{element.replace('_', '-')}-yaml"] = buffer.getvalue().strip()
 
 		yaml.dump(output, dist)
 
