@@ -72,6 +72,12 @@ def main():
 				
 		# Build card-mod theme
 		for element in theme_context:
+			# disables custom switch and card.css which for some reason slows down the entire page
+			# note : removing {{ card.css }} from card.yaml somehow fixes the lag
+			ignore_list = ['ha_switch', 'card', 'row']
+			if element in ignore_list:
+				continue
+					
 			if 'yaml' in theme_context[element]:
 				element_yaml = {
 					**{ key: theme_context[element]['yaml'][key] for key in theme_context[element]['yaml'] },
